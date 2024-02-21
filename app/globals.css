@@ -2,32 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0px;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.underline-effect {
+  opacity: 100%;
+}
+
+.active {
+  display: block;
+}
+
+input::-webkit-input-placeholder {
+  color: #1111;
+  opacity: 50%;
+}
+
+input::placeholder {
+  color: #111111;
+  opacity: 50%;
+}
+
+.active_error::placeholder {
+  color: #b54949;
+}
+
+.active_error {
+  border-bottom: 1px solid #b54949;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#display_count,
+button,
+img[alt~="booking-image"] {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.img-effect {
+  display: block;
+  animation: animationImg 0.5s forwards;
+}
+
+.txt-effect {
+  display: block;
+  animation: animationTxt 0.5s forwards;
+}
+
+@keyframes animationImg {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes animationTxt {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
